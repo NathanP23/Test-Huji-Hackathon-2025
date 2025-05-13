@@ -22,24 +22,30 @@
 !frontend/pages/index.tsx
 !frontend/utils/
 !frontend/utils/api.ts
+!frontend/styles/
+!frontend/styles/globals.css
+!frontend/next.config.js
+!frontend/package.json
 
 # Project Configuration
 !docker-compose.yml
 !README.md
+!LICENSE
+!DEPLOYMENT.md
 !.github/
 !.github/workflows/
 !.github/workflows/ci-cd.yml
+!.github/ISSUE_TEMPLATE/
+!.github/ISSUE_TEMPLATE/bug_report.md
+!.github/ISSUE_TEMPLATE/feature_request.md
 !.gitignore
 !.env.example
 
 # Keep explicitly ignoring these auto-generated files
-# (in case the allow patterns above would include them)
 **/next-env.d.ts
 **/package-lock.json
 **/tsconfig.json
-**/styles/
 **/pages/_app.tsx
-**/next.config.js
 **/.next/
 **/node_modules/
 **/__init__.py

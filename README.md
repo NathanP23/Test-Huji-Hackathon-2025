@@ -1,5 +1,9 @@
 # LLM-Powered Real-Time Chat Application
 
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub issues](https://img.shields.io/github/issues/your-username/llm-chat-app)](https://github.com/your-username/llm-chat-app/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
+
 A real-time chat application demonstrating LLM integration with streaming responses, Redis caching, and a modern React frontend.
 
 ## Features
@@ -8,6 +12,10 @@ A real-time chat application demonstrating LLM integration with streaming respon
 - **Redis Caching**: Reduces API calls and improves response times
 - **OpenAI Integration**: Uses OpenAI API for intelligent responses
 - **Clean UI**: Simple and responsive chat interface
+
+## Live Demo
+
+Check out the live demo: [LLM Chat App](https://your-app-name.onrender.com)
 
 ## Setup Guide
 
@@ -104,3 +112,36 @@ This guide will walk you through setting up the project with its existing struct
 - **Docker Volumes**: Redis data is persisted in a Docker volume named `redis_data`
 - **OpenAI Models**: The application uses gpt-3.5-turbo by default. You can modify the model in `chat_handler.py`
 - **Frontend Hot Reloading**: Any changes to frontend files will automatically reload in development mode
+
+## Deployment
+
+The application is deployed using the following services:
+
+- **Backend**: [Render](https://render.com) (Web Service + Redis)
+- **Frontend**: [Vercel](https://vercel.com) (Next.js)
+
+### Deployment Instructions
+
+Detailed deployment instructions are available in the [DEPLOYMENT.md](DEPLOYMENT.md) file.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+Please make sure to update tests as appropriate.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [OpenAI](https://openai.com) for their powerful API
+- [FastAPI](https://fastapi.tiangolo.com/) for the efficient backend framework
+- [Next.js](https://nextjs.org/) for the frontend framework

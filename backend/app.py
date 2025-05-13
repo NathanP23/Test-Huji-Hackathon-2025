@@ -3,11 +3,21 @@
 import os
 import json
 from fastapi import FastAPI, HTTPException, WebSocket
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from chat_handler import generate_response, stream_response
 
 # Initialize FastAPI app
 app = FastAPI(title="LLM Real-Time Chat API")
+
+# Configure CORS for frontend access
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # For development - in production you should limit this
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load environment variables and check for OpenAI API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -24,7 +34,9 @@ class ChatResponse(BaseModel):
 # Health check endpoint
 @app.get("/")
 async def health_check():
-    return {"status": "ok"}
+    """API health check endpoint"""
+    print("[LOG] Health check endpoint called")
+    return {"status": "ok", "version": "1.0.0"}
 
 # REST API endpoint for non-streaming responses
 @app.post("/chat", response_model=ChatResponse)
@@ -47,11 +59,14 @@ async def chat_ws(websocket: WebSocket):
     """
     Handle WebSocket connection for streaming token-by-token responses
     """
+    # Get origin for CORS
+    client_origin = websocket.headers.get("origin", "http://localhost:3000")
+    
     # Accept the WebSocket connection
     await websocket.accept(
-        headers=[(b"access-control-allow-origin", b"http://localhost:3000")]
+        headers=[(b"access-control-allow-origin", client_origin.encode())]
     )
-    print("[LOG] WebSocket connection accepted")
+    print(f"[LOG] WebSocket connection accepted from origin: {client_origin}")
     
     # Get prompt from query parameters
     prompt = websocket.query_params.get("prompt")

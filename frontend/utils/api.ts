@@ -47,8 +47,14 @@ export function openChatSocket(
   onToken: (token: string) => void,
   onClose: () => void
 ): WebSocket {
-  // Create WebSocket URL
-  const wsUrl = `${API_BASE.replace('http', 'ws')}/chat/ws?prompt=${encodeURIComponent(prompt)}`;
+  // Determine the correct WebSocket protocol (wss for https, ws for http)
+  const isSecure = typeof window !== 'undefined' && window.location.protocol === 'https:';
+  const wsProtocol = isSecure ? 'wss' : 'ws';
+  
+  // Create WebSocket URL, ensuring we use the correct protocol for production
+  const baseUrl = API_BASE.replace('https://', '').replace('http://', '');
+  const wsUrl = `${wsProtocol}://${baseUrl}/chat/ws?prompt=${encodeURIComponent(prompt)}`;
+  
   console.log("[API] Opening WebSocket connection:", wsUrl);
   
   // Create WebSocket
