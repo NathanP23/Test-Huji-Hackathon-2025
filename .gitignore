@@ -30,6 +30,7 @@
 !.github/workflows/
 !.github/workflows/ci-cd.yml
 !.gitignore
+!.env.example
 
 # Keep explicitly ignoring these auto-generated files
 # (in case the allow patterns above would include them)
