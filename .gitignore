@@ -26,6 +26,8 @@
 !frontend/styles/globals.css
 !frontend/next.config.js
 !frontend/package.json
+!frontend/package-lock.json
+
 
 # Project Configuration
 !docker-compose.yml
@@ -43,7 +45,6 @@
 
 # Keep explicitly ignoring these auto-generated files
 **/next-env.d.ts
-**/package-lock.json
 **/tsconfig.json
 **/pages/_app.tsx
 **/.next/
