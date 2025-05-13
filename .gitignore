@@ -1,0 +1,54 @@
+# First, ignore everything
+*
+*/
+*.*
+
+# Then, allow specific files and directories
+
+# Backend files
+!backend/
+!backend/app.py
+!backend/chat_handler.py
+!backend/redis_client.py
+!backend/requirements.txt
+!backend/Dockerfile
+
+# Frontend files
+!frontend/
+!frontend/components/
+!frontend/components/ChatWindow.tsx
+!frontend/components/MessageInput.tsx
+!frontend/pages/
+!frontend/pages/index.tsx
+!frontend/utils/
+!frontend/utils/api.ts
+
+# Project Configuration
+!docker-compose.yml
+!README.md
+!.github/
+!.github/workflows/
+!.github/workflows/ci-cd.yml
+!.gitignore
+
+# Keep explicitly ignoring these auto-generated files
+# (in case the allow patterns above would include them)
+**/next-env.d.ts
+**/package-lock.json
+**/tsconfig.json
+**/styles/
+**/pages/_app.tsx
+**/next.config.js
+**/.next/
+**/node_modules/
+**/__init__.py
+**/__pycache__/
+
+# Also ignore common files and directories
+**/.env
+**/node_modules/
+**/__pycache__/
+**/*.py[cod]
+**/.next/
+**/.DS_Store
+**/*.log
