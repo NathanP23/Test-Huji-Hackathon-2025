@@ -12,6 +12,7 @@
 !backend/redis_client.py
 !backend/requirements.txt
 !backend/Dockerfile
+!backend/test_sample.py
 
 # Frontend files
 !frontend/
